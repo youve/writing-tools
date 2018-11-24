@@ -2,22 +2,20 @@
 # Phrase counter
 
 import re
-from optparse import OptionParser
+import argparse
 import collections
 
 #Usage: python3 phrasecounter.py file.txt
 
-parser = OptionParser()
+parser = argparse.ArgumentParser(description='Count phrases in a text.')
+parser.add_argument('-c', '--clip', dest="clip", action='store_true', help='Use text from the clipboard.')
+parser.add_argument(dest='file', help='Use text from a file', nargs='?')
+args = parser.parse_args()
 
-parser.add_option("-c", "--clipboard", dest="clip",
-                  help="paste from clipboard", metavar="CLIPBOARD")
-
-(options, args) = parser.parse_args()
-
-if args:
-    with open(args[0], "r") as file:
+if args.file:
+    with open(args.file, "r") as file:
         text = file.read()
-elif options.clip:
+elif args.clip:
     try:
         import pyperclip
         text = pyperclip.paste()
@@ -34,6 +32,8 @@ def depunctuate(string):
     string = string.replace('"', '', -1)
     string = string.replace('!', '', -1)
     string = string.replace('\n', ' ', -1)
+    string = string.replace('/', ' ', -1)
+    string = string.replace(':', ' ', -1)
     string = string.replace('--', '', -1)
     string = string.replace('  ', ' ', -1)
     return string
