@@ -6,7 +6,8 @@ These are some utilities I've created to aid in the writing process.
 
 For example, the first two stanzas of "Mary Had a Little Lamb" produce this result:
 
-```5 words    mary had a little lamb  2 times
+```
+5 words    mary had a little lamb  2 times
 4 words    mary went mary went     2 times
 4 words    little lamb little lamb 2 times
 4 words    everywhere that mary went   2 times
