@@ -1,10 +1,17 @@
+# Writing Tools
+
 These are some utilities I've created to aid in the writing process.
 
-`mixnmatch.py` generates character based writing prompts in the form `Write about the most $adjective $person.` Examples: The calmest anthropologist, the drabest childcare worker, the most responsible tax inspector.
+## Phrase Counter
 
-`phraseCounter.py` unlike word counters that tell you that "the" is the most common word in your writing, which is what you would expect for any English text, phraseCounter looks for repetitions of longer phrases in a text file, your clipboard contents, or a text you have typed in. Then it tells you the top 10 longest phrases that occurred the most often, skipping substrings of phrases it has already told you about because they are redundant.
+`phraseCounter.py` My phrase counter is better than any other phrase counter online because:
 
-For example, the first two stanzas of "Mary Had a Little Lamb" produce this result:
+* Word counters give you a useless list like "The", "in", "and", "a", "of".
+* It finds all repeated phrases, not just ones of an exact length.
+* It delivers the result sorted by both length and frequency.
+* It doesn't give you redundant information. If it tells you that you repeated "Mary had a little lamb" twice, it won't tell you about "Mary had a little" or "had a little lamb" because you already know about those.
+
+For example, the first two stanzas of Mary Had a Little Lamb:
 
 ```
 5 words    mary had a little lamb  2 times
@@ -13,3 +20,7 @@ For example, the first two stanzas of "Mary Had a Little Lamb" produce this resu
 4 words    everywhere that mary went   2 times
 1 words    was                   2 times
 ```
+
+## Character sketch prompt
+
+`mixnmatch.py` generates character based writing prompts in the form `Write about the most $adjective $person.` Examples: The calmest anthropologist, the drabest childcare worker, the most responsible tax inspector.
