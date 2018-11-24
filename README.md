@@ -10,4 +10,5 @@ For example, the first two stanzas of "Mary Had a Little Lamb" produce this resu
 4 words    mary went mary went     2 times
 4 words    little lamb little lamb 2 times
 4 words    everywhere that mary went   2 times
-1 words    was                   2 times```
+1 words    was                   2 times
+```
