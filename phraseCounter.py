@@ -26,7 +26,7 @@ else: # type text in manually
 
 def depunctuate(phrase):
     '''Remove punctuation from a text'''
-    phrase = re.sub("[^a-zA-Z0-9áéíóöőúüűćčđšžÁÉÍÓÖŐÚÜŰĆČĐŠŽ']+", " ", phrase.lower())
+    phrase = re.sub("\W", " ", phrase.lower())
     return re.sub("\\s+'|'\\s+", " ", phrase)
 
 def tokenise(passage):
