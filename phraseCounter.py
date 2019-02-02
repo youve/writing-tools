@@ -24,23 +24,14 @@ elif args.clip: # read text from the clipboard
 else: # type text in manually
     text = input("Type your text here: ")
 
-def depunctuate(string):
+def depunctuate(phrase):
     '''Remove punctuation from a text'''
-    string = string.replace(',', '', -1)
-    string = string.replace(';', '', -1)
-    string = string.replace('.', '', -1)
-    string = string.replace('?', '', -1)
-    string = string.replace('"', '', -1)
-    string = string.replace('!', '', -1)
-    string = string.replace('\n', ' ', -1)
-    string = string.replace('/', ' ', -1)
-    string = string.replace(':', ' ', -1)
-    string = string.replace('--', '', -1)
-    string = string.replace('  ', ' ', -1)
-    return string
+    phrase = re.sub("[^a-zA-Z0-9áéíóöőúüűćčđšžÁÉÍÓÖŐÚÜŰĆČĐŠŽ']+", " ", phrase.lower())
+    return re.sub("\\s+'|'\\s+", " ", phrase)
 
 def tokenise(passage):
     '''Returns a dictionary of all the words in the passage and how many times they occur'''
+    #return collections.Counter(passage)
     tokens = {}
     for token in passage:
         if token.strip() not in tokens:
@@ -118,6 +109,7 @@ while len(mostFrequent) < 10:
     break
 
 #print the list
+counter = 0
 for i in range(len(mostFrequent)):
     for j in range(len(mostFrequent[i])):
         if j == 1:
@@ -125,6 +117,9 @@ for i in range(len(mostFrequent)):
         else:
             print(mostFrequent[i][j].ljust(9), end="")
     print("\n", end="")
+    counter += 1
+    if counter == 10:
+        break
 
 #expected results for first two stanzas of Mary had a little lamb:
 #
